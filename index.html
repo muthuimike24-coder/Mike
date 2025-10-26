@@ -1,35 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World App</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      margin: 0;
+      overflow: hidden;
+      text-align: center;
+    }
 
-    <!-- SEO Meta -->
-    <meta name="description" content="A resource sharing and communication broadcast app for everyone. Share updates, resources, and important messages with your community in one place." />
+    h1 {
+      font-size: 2em;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Hello World" />
-    <meta property="og:description" content="A resource sharing and communication broadcast app for everyone. Share updates, resources, and important messages with your community in one place." />
-    <meta property="og:image" content="https://mocha-cdn.com/og.png" />
-    <meta property="og:url" content="https://getmocha.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Hello World" />
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      width: 70%;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1em;
+    }
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@hello_world" />
-    <meta name="twitter:title" content="Hello World" />
-    <meta name="twitter:description" content="A resource sharing and communication broadcast app for everyone. Share updates, resources, and important messages with your community in one place." />
-    <meta name="twitter:image" content="https://mocha-cdn.com/og.png" />
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00c6ff;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-    <!-- Icons -->
-    <link rel="shortcut icon" href="https://mocha-cdn.com/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://mocha-cdn.com/apple-touch-icon.png" />
+    button:hover {
+      transform: scale(1.1);
+      background-color: #0072ff;
+    }
 
-    <title>Hello World</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/react-app/main.tsx"></script>
-  </body>
-      </html>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="greeting">Hello World!</h1>
+  <input id="nameInput" type="text" placeholder="Enter your name" />
+  <button onclick="sayHello()">Say Hello 👋</button>
+
+  <script>
+    function sayHello() {
+      const name = document.getElementById('nameInput').value;
+      const greeting = document.getElementById('greeting');
+      greeting.textContent = name ? `Hello, ${name}!` : 'Hello World!';
+      greeting.style.animation = 'fadeIn 1s ease-in-out';
+    }
+  </script>
+</body>
+</html>
