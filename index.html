@@ -1,75 +1,202 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World App</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      margin: 0;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2em;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    input {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      width: 70%;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 1em;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background-color: #00c6ff;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-      background-color: #0072ff;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamlet Basics</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #8B0000;
+        }
+        
+        h1 {
+            color: #8B0000;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-style: italic;
+        }
+        
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #8B0000;
+            border-left: 4px solid #8B0000;
+            padding-left: 10px;
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .character-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #8B0000;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #8B0000;
+            margin-bottom: 5px;
+        }
+        
+        .quote {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-left: 4px solid #8B0000;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .themes-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .themes-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1 id="greeting">Hello World!</h1>
-  <input id="nameInput" type="text" placeholder="Enter your name" />
-  <button onclick="sayHello()">Say Hello 👋</button>
-
-  <script>
-    function sayHello() {
-      const name = document.getElementById('nameInput').value;
-      const greeting = document.getElementById('greeting');
-      greeting.textContent = name ? `Hello, ${name}!` : 'Hello World!';
-      greeting.style.animation = 'fadeIn 1s ease-in-out';
-    }
-  </script>
+    <header>
+        <h1>Hamlet Basics</h1>
+        <p class="subtitle">A quick guide to Shakespeare's famous tragedy</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>The Core Story</h2>
+            <p><strong>Hamlet, Prince of Denmark</strong>, discovers from his father's ghost that his uncle, <strong>Claudius</strong>, murdered the king to seize the throne and marry Hamlet's mother, Gertrude. The ghost demands revenge. Hamlet, torn between grief, rage, and philosophical doubt, feigns madness while grappling with the morality of his task, leading to a tragic chain of events.</p>
+        </section>
+        
+        <section>
+            <h2>Key Characters</h2>
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="character-name">Hamlet</div>
+                    <div>The melancholy, philosophical prince. He is introspective, witty, and paralyzed by indecision.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Claudius</div>
+                    <div>The new King. Charismatic, politically shrewd, and morally corrupt.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Gertrude</div>
+                    <div>Hamlet's mother. She married Claudius shortly after her husband's death.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Ghost</div>
+                    <div>The spirit of Hamlet's murdered father, demanding revenge.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Ophelia</div>
+                    <div>Hamlet's love interest. Her descent into madness mirrors Hamlet's feigned insanity.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Polonius</div>
+                    <div>Ophelia's father, the lord chamberlain. Long-winded, nosy, and manipulative.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Horatio</div>
+                    <div>Hamlet's loyal friend. The voice of reason and the play's primary witness.</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Laertes</div>
+                    <div>Ophelia's brother. Hot-headed and impulsive, serving as a foil to Hamlet.</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Major Themes</h2>
+            <ul class="themes-list">
+                <li><strong>Revenge vs. Justice:</strong> Is Hamlet's quest morally right?</li>
+                <li><strong>Madness:</strong> Real vs. feigned insanity and its causes.</li>
+                <li><strong>Mortality:</strong> The famous "To be or not to be" soliloquy questions life, death, and the afterlife.</li>
+                <li><strong>Betrayal & Corruption:</strong> Political and familial treachery poison the state of Denmark.</li>
+                <li><strong>Action vs. Inaction:</strong> Hamlet's paralyzing over-analysis versus decisive action.</li>
+                <li><strong>Appearance vs. Reality:</strong> "Something is rotten in the state of Denmark." Nothing is as it seems.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Famous Quotes</h2>
+            <div class="quote">
+                "To be, or not to be: that is the question."<br>
+                <em>- Hamlet (Act 3, Scene 1)</em>
+            </div>
+            <div class="quote">
+                "Something is rotten in the state of Denmark."<br>
+                <em>- Marcellus (Act 1, Scene 4)</em>
+            </div>
+            <div class="quote">
+                "Though this be madness, yet there is method in't."<br>
+                <em>- Polonius (Act 2, Scene 2)</em>
+            </div>
+            <div class="quote">
+                "The lady doth protest too much, methinks."<br>
+                <em>- Gertrude (Act 3, Scene 2)</em>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Why It Matters</h2>
+            <p><strong>Hamlet</strong> is arguably the most famous play in the English language. Its exploration of the human psyche, moral ambiguity, and existential dread feels strikingly modern. The character of Hamlet himself—with his introspection, wit, and paralyzing self-doubt—has become the archetype of the modern individual.</p>
+            <p><strong>Fun Fact:</strong> With over 4,000 lines, Hamlet has the most lines of any character in Shakespeare's plays.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>William Shakespeare's "The Tragedy of Hamlet, Prince of Denmark" (c. 1599-1601)</p>
+        <p>Basic guide for students and readers</p>
+    </footer>
 </body>
 </html>
+``
